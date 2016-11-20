@@ -1,5 +1,9 @@
 # Capistrano 3 Rails Config
 
+
+## Fork Changes
+I'm going to change this repo for my current needs. For example I'm gonna replace unicorn by puma etc.
+
 ## Overview
 
 This is a sample configuration for deploying Ruby on Rails applications with Capistrano 3.1 including Zero Downtime Deployment with Unicorn and Sidekiq background Workers.
@@ -18,10 +22,10 @@ book Reliably Deploying Rails Applications available on Leanpub:
 
 You should have the following in your Gemfile:
 
-    gem 'capistrano', '~> 3.1.0'
+    gem 'capistrano', '~> 3.5.0'
 
     # rails specific capistrano funcitons
-    gem 'capistrano-rails', '~> 1.1.0'
+    gem 'capistrano-rails', '~> 1.2'
 
     # integrate bundler with capistrano
     gem 'capistrano-bundler'
@@ -30,5 +34,8 @@ You should have the following in your Gemfile:
     gem 'capistrano-rbenv', "~> 2.0" 
 
     # Use Unicorn as our app server
-    gem 'unicorn'
+    # gem 'unicorn'
 
+    # User Puma as our app server and add puma tasks to capistrano
+    gem 'puma'
+    gem 'capistrano3-puma'
