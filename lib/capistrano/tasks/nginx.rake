@@ -19,4 +19,11 @@ namespace :nginx do
       end
     end
   end
+
+  desc 'Display status of the nginx web server'
+  task :status do
+    on roles(:app) do
+      execute 'service nginx status || true && ps -eopid,user,fname | grep [n]ginx || true && netstat -tulpn | grep nginx || true'
+    end
+  end
 end
